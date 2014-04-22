@@ -38,7 +38,7 @@ public class ReceiverRunnalbe implements Runnable {
                 socket.receive(packet);
 
                 String msg = new String(packet.getData(), 0, packet.getData().length);
-                System.out.println(msg);
+                Output.println(msg);
 
                 if (msg.trim().equals("Echo: " + Constants.SHUTDOWN_MESSAGE))
                     done = true;
