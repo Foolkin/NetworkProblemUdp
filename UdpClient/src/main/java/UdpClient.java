@@ -58,7 +58,7 @@ public class UdpClient {
      */
     public static void main(String[] args) {
         if (args.length < 2) {
-            throw new IllegalArgumentException("Unexpected number of arguments");
+            throw new IllegalArgumentException("Input ip and port");
         }
         try {
             InetAddress address = InetAddress.getByName(args[0]);

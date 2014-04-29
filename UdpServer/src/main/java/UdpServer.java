@@ -30,7 +30,6 @@ public class UdpServer {
      * Starts listening socket. If receive incoming packet create session.
      */
     public void start(){
-        System.out.println("start");
         try {
             DatagramPacket packet = recievePacket();
             String greetings = "Anotheria bootcamp server. \nEnter BYE to exit.";
@@ -105,8 +104,12 @@ public class UdpServer {
      * @param args
      */
     public static void main(String[] args){
-        UdpServer server = new UdpServer(8189);
-        server.start();
+        if (args.length < 1) {
+            throw new IllegalArgumentException("Input socket port");
+        }
 
+        final int port = Integer.parseInt(args[0]);
+
+        new UdpServer(port).start();
     }
 }
